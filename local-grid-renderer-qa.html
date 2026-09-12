@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>Local Grid Renderer QA</title>
+    <style>
+      html,
+      body,
+      #world {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        display: block;
+        background: #101719;
+      }
+
+      #boot {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="world"></canvas>
+    <div id="hud"></div>
+    <div id="boot"></div>
+    <script type="module">
+      import { WorldRenderer } from "/src/render/WorldRenderer.ts";
+
+      const canvas = document.querySelector("#world");
+      const renderer = new WorldRenderer(canvas);
+      await renderer.init();
+      window.__CINDERLINE__ = { renderer };
+      document.querySelector("#boot")?.classList.add("is-done");
+
+      let previous = performance.now();
+      const frame = (now) => {
+        const dt = Math.min(0.1, (now - previous) / 1000);
+        previous = now;
+        renderer.update(dt, now / 1000);
+        renderer.render(dt);
+        requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+    </script>
+  </body>
+</html>
