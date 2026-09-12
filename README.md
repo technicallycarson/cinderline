@@ -1,6 +1,24 @@
+This project was an experiment in using `gpt-5.6-sol` with `ultra` reasoning effort to generate a factory automation game inspired by Factorio in a single shot.
+
+The initial commit contains all generated content exactly as produced, without any modifications.
+
+For a complete walkthrough, watch the video on YouTube:
+
+<p align="center">
+  <a href="https://youtu.be/7jp1Q4ndplg">
+    <img src="https://img.youtube.com/vi/7jp1Q4ndplg/hqdefault.jpg" alt="Watch the complete Cinderline walkthrough on YouTube" width="640">
+  </a>
+</p>
+
+---
+
 # CINDERLINE
 
 An original, deterministic factory-automation game built for the browser with Three.js.
+
+<p align="center">
+  <img src="./initial-screen.png" alt="Cinderline's initial game screen, showing the factory and Bootstrap commission" width="960">
+</p>
 
 The current release target is [Milestone M1 — Playable Vertical Slice](./MILESTONE-M1.md).
 It gates a two-stage Bootstrap → Throughput campaign arc, persistence,
